@@ -9,6 +9,7 @@ const InputForm = ({
   variant,
   label,
   onChange,
+  onBlur,
 }: InputTypes) => {
   return (
     <S.Label>
@@ -19,6 +20,7 @@ const InputForm = ({
         size={size}
         variant={variant}
         onChange={onChange}
+        onBlur={onBlur}
       />
     </S.Label>
   );

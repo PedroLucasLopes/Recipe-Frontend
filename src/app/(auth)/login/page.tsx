@@ -1,30 +1,15 @@
 "use client";
-import React, { useCallback, useEffect } from "react";
+import { useState } from "react";
 import * as S from "./styles";
 import { Jomolhari } from "next/font/google";
-import { HiSearch } from "react-icons/hi";
-import { HiLockClosed } from "react-icons/hi";
-import InputForm from "@/app/components/Input/Input";
-import ButtonForm from "@/app/components/Button/Button";
-import Link from "next/link";
-import { instance } from "@/app/api/instance";
+import Sign from "./Sign/Sign";
+import { defaultData } from "./Sign/defaultData";
+import Nav from "./Sign/Nav";
 
 const jomolhari = Jomolhari({ weight: "400", subsets: ["latin"] });
 export default function Login() {
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [body, setBody] = React.useState({});
-
-  async function submitForm() {
-    await setBody({ username: username, password: password });
-    const { data } = await instance.post("/login", body);
-
-    window.localStorage.setItem("access_token", data.access_token);
-  }
-
-  useEffect(() => {
-    console.log(window.localStorage.getItem("access_token"));
-  }, []);
+  const [data, setData] = useState<ISignData>(defaultData);
+  const [step, setStep] = useState(1);
 
   return (
     <S.LoginContainer>
@@ -39,39 +24,8 @@ export default function Login() {
           </S.GridTitle>
         </S.LeftGrid>
         <S.RightGrid>
-          <form>
-            <S.LoginInputBox>
-              <HiSearch />
-              <InputForm
-                type="text"
-                variant="flushed"
-                placeholder="Usuário"
-                size="lg"
-                onChange={({ target }: { target: HTMLInputElement }) =>
-                  setUsername(target.value)
-                }
-              />
-            </S.LoginInputBox>
-
-            <S.LoginInputBox>
-              <HiLockClosed />
-              <InputForm
-                type="password"
-                variant="flushed"
-                placeholder="Senha"
-                size="lg"
-                onChange={({ target }: { target: HTMLInputElement }) =>
-                  setPassword(target.value)
-                }
-              />
-            </S.LoginInputBox>
-            <ButtonForm type="button" size="lg" onClick={submitForm}>
-              Entrar
-            </ButtonForm>
-          </form>
-          <p>
-            Ou <Link href={"sign-up"}>Cadastre-se</Link>
-          </p>
+          <Sign step={step} setStep={setStep} setData={setData} data={data} />
+          <Nav step={step} data={data} setData={setData} setStep={setStep} />
         </S.RightGrid>
       </S.Main>
     </S.LoginContainer>

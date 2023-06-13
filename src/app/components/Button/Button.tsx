@@ -2,7 +2,7 @@
 import * as S from "./styles";
 import { ButtonTypes } from "./types";
 
-const ButtonForm = ({
+const Button = ({
   children,
   color,
   size,
@@ -23,4 +23,4 @@ const ButtonForm = ({
   );
 };
 
-export default ButtonForm;
+export default Button;
