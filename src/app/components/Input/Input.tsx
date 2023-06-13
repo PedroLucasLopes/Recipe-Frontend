@@ -8,6 +8,8 @@ const InputForm = ({
   size,
   variant,
   label,
+  w,
+  value,
   onChange,
   onBlur,
 }: InputTypes) => {
@@ -18,7 +20,9 @@ const InputForm = ({
         type={type}
         placeholder={placeholder}
         size={size}
+        w={w}
         variant={variant}
+        value={value}
         onChange={onChange}
         onBlur={onBlur}
       />

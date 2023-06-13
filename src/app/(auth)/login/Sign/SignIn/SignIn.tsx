@@ -51,6 +51,7 @@ const SignIn: React.FC<ISignPanels> = ({ data, setData, setStep }) => {
             placeholder="Usuário"
             size="lg"
             onChange={onChangeUser}
+            value={data.signIn.username}
           />
         </S.LoginInputBox>
 
@@ -63,6 +64,7 @@ const SignIn: React.FC<ISignPanels> = ({ data, setData, setStep }) => {
             size="lg"
             onChange={onChangePassword}
             onBlur={onBlur}
+            value={data.signIn.password}
           />
         </S.LoginInputBox>
       </form>
