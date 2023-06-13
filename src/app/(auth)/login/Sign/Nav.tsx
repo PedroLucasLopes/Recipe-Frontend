@@ -1,6 +1,5 @@
 import instance from "@/app/api/instance";
 import Button from "@/app/components/Button/Button";
-import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { memo } from "react";
 
@@ -10,7 +9,6 @@ interface IProps extends ISignPanels {
 
 const Nav: React.FC<IProps> = ({ data, step, setData, setStep }) => {
   const { signIn, signUp } = data;
-  const navigate = useRouter();
 
   const getBody = useCallback(() => {
     const concatData = Object.assign(signIn, signUp);
