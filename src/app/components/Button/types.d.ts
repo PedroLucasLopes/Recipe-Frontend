@@ -22,5 +22,10 @@ export type ButtonTypes = {
   size?: "xs" | "sm" | "md" | "lg";
   variant?: "solid" | "outline" | "ghost" | "link";
   type: "button" | "submit";
+  w?: string;
+  mt?: string;
   onClick?: React.Dispatch;
+  loadingText?: string;
+  isLoading?: boolean;
+  loading?: boolean;
 };

@@ -1,24 +1,20 @@
 "use client";
 import * as S from "./styles";
-import { ButtonTypes } from "./types";
 
-const Button = ({
-  children,
-  color,
-  size,
-  variant,
-  type,
-  onClick,
-}: ButtonTypes) => {
+const Button = (props: any) => {
   return (
     <S.Btn
-      type={type}
-      colorScheme={color}
-      size={size}
-      variant={variant}
-      onClick={() => onClick && onClick()}
+      type={props.type}
+      w={props.w}
+      mt={props.mt}
+      colorScheme={props.color}
+      size={props.size}
+      variant={props.variant}
+      onClick={() => props.onClick()}
+      loadingText={props.loadingText}
+      {...props}
     >
-      {children}
+      {props.children}
     </S.Btn>
   );
 };

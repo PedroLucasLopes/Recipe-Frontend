@@ -4,7 +4,6 @@ import * as S from "./styles";
 import { Jomolhari } from "next/font/google";
 import Sign from "./Sign/Sign";
 import { defaultData } from "./Sign/defaultData";
-import Nav from "./Sign/Nav";
 
 const jomolhari = Jomolhari({ weight: "400", subsets: ["latin"] });
 export default function Login() {
@@ -25,7 +24,6 @@ export default function Login() {
         </S.LeftGrid>
         <S.RightGrid>
           <Sign step={step} setStep={setStep} setData={setData} data={data} />
-          <Nav step={step} data={data} setData={setData} setStep={setStep} />
         </S.RightGrid>
       </S.Main>
     </S.LoginContainer>
