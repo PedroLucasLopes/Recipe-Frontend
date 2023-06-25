@@ -27,6 +27,7 @@ const Nav: React.FC<IProps> = ({ data, step, setData, setStep }) => {
       setLoading(true);
       const url = "/login";
       instance.post(url, signIn).then(({ data }) => {
+        console.log(data);
         localStorage.setItem("@Token:User", data.access_token);
         setLoading(false);
       });
